@@ -26,6 +26,10 @@ namespace pbrt_parser {
     : name(fn)
   {
     file = fopen(fn.str().c_str(),"r");
+		if (file == NULL)
+		{
+			std::cerr << "File " << fn << "failed to open." << std::endl;
+		}
   }
 
   // =======================================================

@@ -167,10 +167,14 @@ namespace pbrt_parser {
     return thisID;
   }
 
-  void parsePLY(const std::string &fileName,
-                std::vector<vec3f> &v,
-                std::vector<vec3f> &n,
-                std::vector<vec3i> &idx);
+	void parsePLY(const std::string &fileName,
+		std::vector<vec3f> &v,
+		std::vector<vec3f> &n,
+		std::vector<vec3i> &idx)
+	{
+	
+		 
+	}
 
   int writePlyMesh(std::shared_ptr<Shape> shape, const affine3f &instanceXfm)
   {
