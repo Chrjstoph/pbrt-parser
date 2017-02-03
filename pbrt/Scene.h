@@ -183,15 +183,15 @@ namespace pbrt_parser {
 
   //! what's in a objectbegin/objectned, as well as the root object
   struct PBRT_PARSER_INTERFACE Object {
-    PBRT_PARSER_INTERFACE Object(const std::string &name) : name(name) {}
+     Object(const std::string &name) : name(name) {}
 
     struct PBRT_PARSER_INTERFACE Instance {
-      PBRT_PARSER_INTERFACE Instance(const std::shared_ptr<Object> &object,
+       Instance(const std::shared_ptr<Object> &object,
                const affine3f    &xfm)
         : object(object), xfm(xfm)
       {}
 
-      PBRT_PARSER_INTERFACE std::string toString() const;
+       std::string toString() const;
 
       std::shared_ptr<Object> object;
       affine3f    xfm;
@@ -214,7 +214,7 @@ namespace pbrt_parser {
 
   struct PBRT_PARSER_INTERFACE Scene {
 
-    PBRT_PARSER_INTERFACE Scene()
+     Scene()
       {
         world = std::make_shared<Object>("<root>");
       };
