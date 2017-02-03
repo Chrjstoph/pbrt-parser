@@ -425,8 +425,7 @@ namespace pbrt_parser {
         if (token->text == "ObjectInstance") {
           std::string name = tokens->next()->text;
           std::shared_ptr<Object> object = findNamedObject(name,1);
-          std::shared_ptr<Object::Instance> inst
-            = std::make_shared<Object::Instance>(object,getCurrentXfm());
+          std::shared_ptr<Object::Instance> inst = std::make_shared<Object::Instance>(object,getCurrentXfm());
           getCurrentObject()->objectInstances.push_back(inst);
           if (verbose)
             cout << "adding instance " << inst->toString()

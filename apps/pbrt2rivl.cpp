@@ -170,11 +170,11 @@ namespace pbrt_parser {
 	void parsePLY(const std::string &fileName,
 		std::vector<vec3f> &v,
 		std::vector<vec3f> &n,
-		std::vector<vec3i> &idx)
-	{
+		std::vector<vec3i> &idx);
 	
-		 
-	}
+	
+	 
+	
 
   int writePlyMesh(std::shared_ptr<Shape> shape, const affine3f &instanceXfm)
   {
@@ -230,17 +230,19 @@ namespace pbrt_parser {
 
     // std::vector<int> child;
 
-    for (int shapeID=0;shapeID<object->shapes.size();shapeID++) {
+    for (int shapeID=0;shapeID<object->shapes.size();shapeID++) 
+		{
       std::shared_ptr<Shape> shape = object->shapes[shapeID];
 
       numInstances++;
 
-      if (alreadyExported.find(shape) != alreadyExported.end()) {
+      if (alreadyExported.find(shape) != alreadyExported.end()) 
+			{
           
 
         int childID = alreadyExported[shape];
-        affine3f xfm = instanceXfm * //shape->transform * 
-          rcp(transformOfFirstInstance[childID]);
+        affine3f xfm = instanceXfm * /*shape->transform */         rcp(transformOfFirstInstance[childID]);
+
         numInstancedTriangles += numTrisOfInstance[childID];
 
         int thisID = nextNodeID++;
@@ -283,8 +285,7 @@ namespace pbrt_parser {
       cout << "**** invalid shape #" << shapeID << " : " << shape->type << endl;
     }
     for (int instID=0;instID<object->objectInstances.size();instID++) {
-      writeObject(object->objectInstances[instID]->object,
-                  instanceXfm*object->objectInstances[instID]->xfm);
+      writeObject(object->objectInstances[instID]->object,               instanceXfm*object->objectInstances[instID]->xfm);
     }      
   }
 
@@ -339,7 +340,7 @@ namespace pbrt_parser {
       std::cout << "==> parsing successful (grammar only for now)" << std::endl;
     
       std::shared_ptr<Scene> scene = parser->getScene();
-      writeObject(scene->world,ospcommon::one);
+      writeObject(scene->world, ospcommon::one);
 
       {
         int thisID = nextNodeID++;
