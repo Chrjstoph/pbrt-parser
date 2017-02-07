@@ -125,7 +125,7 @@ namespace pbrt_parser {
 
     fprintf(out,"<Mesh id=\"%i\">\n",thisID);
     fprintf(out,"  <materiallist>%i</materiallist>\n",materialID);
-    { // parse "point P"
+	   { // parse "point P"
       std::shared_ptr<ParamT<float> > param_P = shape->findParam<float>("P");
       if (param_P) {
         size_t ofs = ftell(bin);
@@ -141,7 +141,7 @@ namespace pbrt_parser {
         }
         fprintf(out,"  <vertex num=\"%li\" ofs=\"%li\"/>\n",
                 numPoints,ofs);
-      }
+      }						
         
     }
       

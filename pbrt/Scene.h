@@ -82,6 +82,7 @@ namespace pbrt_parser {
       specifies the type explicitly right after the 'matierla'
       command; for the 'makenamedmaterial' it uses an implicit
       'type' parameter */
+		std::string name;
     std::string type;
   };
 

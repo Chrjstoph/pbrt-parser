@@ -147,7 +147,7 @@ namespace pbrt_parser {
   std::string Material::toString() const
   {
     std::stringstream ss;
-    ss << "Material type='"<< type << "' {" << endl;
+		ss << "Material type='" << type << "'name='" << name << "' {" << endl;
     for (std::map<std::string,std::shared_ptr<Param> >::const_iterator it=param.begin(); 
          it != param.end(); it++) {
       ss << " - " << it->first << " : " << it->second->toString() << endl;

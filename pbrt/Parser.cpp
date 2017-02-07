@@ -317,6 +317,8 @@ namespace pbrt_parser {
           std::string type = tokens->next()->text;
           std::shared_ptr<Material> material
             = std::make_shared<Material>(type);
+					material->name = "unnamedMaterial";
+					material->name += materialID++;
           parseParams(material->param,*tokens);
           currentMaterial = material;
           continue;
@@ -335,6 +337,7 @@ namespace pbrt_parser {
           std::string name = tokens->next()->text;
           std::shared_ptr<Material> material
             = std::make_shared<Material>("<implicit>");
+					material->name = name;
           namedMaterial[name] = material;
           parseParams(material->param,*tokens);
 

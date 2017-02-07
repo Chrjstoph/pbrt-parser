@@ -360,7 +360,7 @@ namespace pbrt_parser {
         FREE(e);
       }
 
-      free(ply->elems);
+      //free(ply->elems);
         
       // Ref<sg::TriangleMesh> mesh = new sg::TriangleMesh;
       // mesh->index = idx.ptr;

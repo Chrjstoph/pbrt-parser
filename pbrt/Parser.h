@@ -52,8 +52,12 @@ namespace pbrt_parser {
     void popTransform();
 
     /*! return the scene we have parsed */
-    std::shared_ptr<Scene> getScene() { return scene; }
-      
+		std::shared_ptr<Scene> getScene() { return scene; }
+
+		const std::map<std::string, std::shared_ptr<Texture> > getTextures() { return namedTexture; }
+
+		const std::map<std::string, std::shared_ptr<Material> > getMaterials() { return namedMaterial; }
+
   private:
     //! stack of parent files' token streams
     std::stack<std::shared_ptr<Lexer> > tokenizerStack;
@@ -85,6 +89,7 @@ namespace pbrt_parser {
     bool dbg;
     const std::string basePath;
     FileName rootNamePath;
+		int materialID = 0;
     std::shared_ptr<Scene>    scene;
     std::shared_ptr<Object>   currentObject;
     std::shared_ptr<Material> currentMaterial;
